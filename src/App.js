@@ -38,7 +38,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Mike's Must Movies</h1>
-          <h5 className="App-title">A Google sheet connected project</h5>
+          <h5 className="App-title">A Google Sheets connected project</h5>
         </header>
         <MovieGallery  data={data}/>
       </div>

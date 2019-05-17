@@ -22,6 +22,7 @@ function MovieGallery({data}) {
 
 function App() {
     const [data, setData] = useState([]);
+
     const hidden = useShowOnScroll();
     useEffect(() => {
       Tabletop.init({
@@ -39,9 +40,9 @@ function App() {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Mike's Must Movies</h1>
-          <h5 className="App-title">A Google Sheets connected project</h5>
+          <h2 className="App-subtitle">A Google Sheets connected project</h2>
           {!hidden && (
-            <div className="navigation"><h5 className="nav-title">Mikes Must Movies</h5></div>
+            <div className="navigation"><h2 className="nav-title">Mikes Must Movies</h2></div>
           )}
         </header>
         <MovieGallery  data={data}/>

@@ -47,5 +47,10 @@
 }
 
 .nav-title{
-  margin:3vh;
+  margin:2vh;
+  font-size: 0.4em;
+}
+
+.App-subtitle{
+  font-size: 0.4em;
 }

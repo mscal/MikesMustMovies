@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Tabletop from 'tabletop';
 
@@ -19,21 +19,21 @@ function MovieGallery({data}) {
   </div>;
 }
 
-function SheetConnect(setData) {
-  Tabletop.init({
-    key: '1I-VdIEjcSPe8LYGsVAp-P8Nk6QCEdWGVtXkKeFO-U-4',
-    callback: googleData => {
-    setData(
-        googleData
-    )
-    },
-    simpleSheet: true
-  })
-}
-
 function App() {
     const [data, setData] = useState([]);
-    SheetConnect(setData);
+
+    useEffect(() => {
+      Tabletop.init({
+        key: '1I-VdIEjcSPe8LYGsVAp-P8Nk6QCEdWGVtXkKeFO-U-4',
+        callback: googleData => {
+        setData(
+            googleData
+        )
+        },
+        simpleSheet: true
+      })
+    }, []);
+
     return (
       <div className="App">
         <header className="App-header">

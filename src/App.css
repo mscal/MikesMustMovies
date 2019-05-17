@@ -25,6 +25,7 @@
   height: auto;
   width: 50%;
   border-radius: 10px;
+  max-height: 444.45px;
 }
 
 .movie-gallery p{
@@ -34,4 +35,5 @@
 .movie-obj{
   max-width: 600px;
   margin-bottom: 5vh;
+
 }

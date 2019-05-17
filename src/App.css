@@ -37,3 +37,15 @@
   margin-bottom: 5vh;
 
 }
+
+.navigation{
+  position: fixed;
+  top: 0;
+  background-color: #ec5a6e;
+  width: 100%;
+  min-height: 50px;
+}
+
+.nav-title{
+  margin:3vh;
+}

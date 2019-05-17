@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Tabletop from 'tabletop';
+import useShowOnScroll from "./useShowOnScroll";
 
 
 function MovieGallery({data}) {
@@ -21,7 +22,7 @@ function MovieGallery({data}) {
 
 function App() {
     const [data, setData] = useState([]);
-
+    const hidden = useShowOnScroll();
     useEffect(() => {
       Tabletop.init({
         key: '1I-VdIEjcSPe8LYGsVAp-P8Nk6QCEdWGVtXkKeFO-U-4',
@@ -39,6 +40,9 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Mike's Must Movies</h1>
           <h5 className="App-title">A Google Sheets connected project</h5>
+          {!hidden && (
+            <div className="navigation"><h5 className="nav-title">Mikes Must Movies</h5></div>
+          )}
         </header>
         <MovieGallery  data={data}/>
       </div>

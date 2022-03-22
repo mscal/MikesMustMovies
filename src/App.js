@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Tabletop from 'tabletop';
 import useShowOnScroll from "./useShowOnScroll";
-
+import Papa from 'papaparse';
 
 function MovieGallery({data}) {
   return <div className="movie-gallery">
@@ -25,16 +24,16 @@ function App() {
 
     const hidden = useShowOnScroll();
     useEffect(() => {
-      Tabletop.init({
-        key: '1I-VdIEjcSPe8LYGsVAp-P8Nk6QCEdWGVtXkKeFO-U-4',
-        callback: googleData => {
-        setData(
-            googleData
-        )
-        },
-        simpleSheet: true
+      Papa.parse('https://docs.google.com/spreadsheets/d/1I-VdIEjcSPe8LYGsVAp-P8Nk6QCEdWGVtXkKeFO-U-4/pub?output=csv', {
+          download: true,
+          header: true,
+          complete: function(results) {
+            setData(results.data)
+          }
       })
     }, []);
+    const mov = Array.from(data);
+    console.log(mov, 'loggin');
 
     return (
       <div className="App">
@@ -45,7 +44,7 @@ function App() {
             <div className="navigation"><h2 className="nav-title">Mikes Must Movies</h2></div>
           )}
         </header>
-        <MovieGallery  data={data}/>
+        <MovieGallery  data={mov}/>
       </div>
     );
 }
